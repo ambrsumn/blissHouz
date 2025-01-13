@@ -1,0 +1,125 @@
+<app-navbar class="sticky top-0 z-50 transition-transform duration-300 ease-in-out transform"
+    [ngClass]="{'translate-y-0': !isScrolled, '-translate-y-full': isScrolled}"></app-navbar>
+
+<div class="h-[90vh] w-full"
+    style="background-image: url('https://i.imgur.com/9uYUMPO.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div class="w-[80%] mx-auto flex flex-row justify-between">
+
+        <div class="pt-52">
+            <p class="text-2xl font-medium">Welcome To BlissHouz</p>
+            <p class="text-5xl mt-1 font-semibold text-white">Your Home,</p>
+            <p class="text-5xl mt-1 font-semibold text-white">Your Community,</p>
+            <p class="text-5xl mt-1 font-semibold text-white">Your Dream</p>
+
+            <button class="rounded-lg shadow-sm h-12 w-[30%] bg-[#BD945A] px-4  mt-4 mb-40 font-medium text-white">Book
+                Now</button>
+        </div>
+
+        <div class="pt-64">
+
+            <div class="relative w-[8.5rem] h-[8.5rem]">
+                <div
+                    class="absolute w-24 h-24 rounded-full border-4 border-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div class="absolute w-full h-full animate-spin" style="animation-duration: 15s;">
+                    <svg viewBox="0 0 100 100" class="absolute w-full h-full">
+                        <!-- Path for top half -->
+                        <path id="curve1" d="M50,10 A40,40 0 0,1 50,90" fill="none" />
+                        <!-- Path for bottom half -->
+                        <path id="curve2" d="M50,90 A40,40 0 0,1 50,10" fill="none" />
+                        <!-- Word 1 -->
+                        <text>
+                            <textPath href="#curve1" startOffset="20%" text-anchor="middle"
+                                class="text-white tracking-wider text-xs">
+                                HOME
+                            </textPath>
+                        </text>
+                        <!-- Word 2 -->
+                        <text>
+                            <textPath href="#curve1" startOffset="90%" text-anchor="middle"
+                                class="text-white tracking-wider text-xs">
+                                COMMUNITY
+                            </textPath>
+                        </text>
+                        <!-- Word 3 -->
+                        <text>
+                            <textPath href="#curve2" startOffset="50%" text-anchor="middle"
+                                class="text-white tracking-wider text-xs">
+                                DREAM
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-[#F4F1ED] h-[60vh] w-full">
+
+        <div class="pt-16">
+            <p class="text-[#DBBA8B] text-base text-center">COMFORT AND RELAX</p>
+            <p class="text-black text-center text-3xl">EXCLUSIVE OFFERS</p>
+        </div>
+
+        <div class="flex flex-row gap-x-8 w-[70%] mx-auto mt-12">
+            <div *ngFor="let cards of imagesArray; let i =index;">
+                <app-offer-cards [cards]="cards" [content]="content[i]" [discount]="discountArray[i]"></app-offer-cards>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="h-[50vh] w-full" style="background-image: url('https://i.imgur.com/HL2TbRo.png'); background-position: center; background-repeat:
+        no-repeat; background-size: cover;">
+        <div class="flex flex-row gap-x-4 p-4 pt-20 bg-gray-100 rounded-md shadow-md">
+            <!-- Check In -->
+            <div class="w-[15%]">
+                <label class="block mb-2">Check In</label>
+                <input type="date" class="w-full p-2 border rounded-md">
+            </div>
+
+            <!-- Check Out -->
+            <div class="w-[15%]">
+                <label class="block mb-2">Check Out</label>
+                <input type="date" class="w-full p-2 border rounded-md">
+            </div>
+
+            <!-- Adults -->
+            <div class="w-[15%]">
+                <label class="block mb-2">Adults</label>
+                <select class="w-full p-2 border rounded-md">
+                    <option *ngFor="let adult of adults" [value]="adult">{{adult}}</option>
+                </select>
+            </div>
+
+            <!-- Children -->
+            <div class="w-[15%]">
+                <label class="block mb-2">Children</label>
+                <select class="w-full p-2 border rounded-md">
+                    <option value="0">0 Children</option>
+                    <option value="1">1 Child</option>
+                </select>
+            </div>
+
+            <!-- Rooms -->
+            <div class="w-[15%]">
+                <label class="block mb-2">Rooms</label>
+                <select class="w-full p-2 border rounded-md">
+                    <option value="1">1 Room</option>
+                    <option value="2">2 Rooms</option>
+                </select>
+            </div>
+
+            <!-- Check Now Button -->
+            <div class="w-[15%]">
+                <button class="w-full p-2 mt-8 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">
+                    Check Now
+                </button>
+            </div>
+        </div>
+
+    </div>
